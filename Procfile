@@ -1,1 +1,1 @@
-web: gunicron -b :$PORT roadlink.wsgi
+web: gunicorn -b :$PORT roadlink.wsgi

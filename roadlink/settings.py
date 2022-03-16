@@ -10,6 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+import environ
+
+ROOT_DIR = (
+        environ.Path(__file__) - 2
+)  # (bootcamp/config/settings/base.py - 3 = bootcamp/)
+APPS_DIR = ROOT_DIR.path("")
+#print(ROOT_DIR)
+APP_DIRS = True
+
+env = environ.Env()
+env.read_env(str(ROOT_DIR.path(".env")))
+#print(env)
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -61,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
 
 ROOT_URLCONF = 'roadlink.urls'
@@ -68,31 +81,43 @@ ROOT_URLCONF = 'roadlink.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+         "DIRS": [str(APPS_DIR.path("templates"))],
+        #'APP_DIRS': True,
+
         'OPTIONS': {
+            "loaders": [
+                "django.template.loaders.filesystem.Loader",
+                "django.template.loaders.app_directories.Loader",
+            ],
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.template.context_processors.i18n",
+                "django.template.context_processors.media",
+                "django.template.context_processors.static",
+                "django.template.context_processors.tz",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'roadlink.wsgi.application'
+WSGI_APPLICATION = 'roadlink.asgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
+
+DATABASES = {"default": env.db("DATABASE_URL")}
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 
 # Password validation
@@ -131,7 +156,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+STATIC_ROOT = str(ROOT_DIR("staticfiles"))
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [str(APPS_DIR.path("static"))]
+
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
 
 MEDIA_URL = 'roadlink/media/'
 
@@ -145,3 +179,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'email'
 EMAIL_HOST_PASSWORD = 'pass'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

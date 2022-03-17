@@ -62,6 +62,7 @@ Django = "==3.2.12"
 Pillow = "==5.1.0"
 pyOpenSSL = "==22.0.0"
 Twisted = "==22.2.0"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.6"

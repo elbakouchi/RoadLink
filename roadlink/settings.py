@@ -37,7 +37,7 @@ SECRET_KEY = 'c7#-5a82#$p11h1itg3(e9591bms*)1$9x+#ed5%5pip6psm)&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lepark.herokuapp.com']
+ALLOWED_HOSTS = ['localhost','lepark.herokuapp.com']
 
 
 # Application definition
@@ -103,7 +103,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'roadlink.asgi.application'
+WSGI_APPLICATION = 'roadlink.wsgi.application'
+ASGI_APPLICATION = 'roadlink.asgi.application'
 
 
 # Database

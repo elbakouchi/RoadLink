@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='budget',
             name='balance',
-            field=models.FloatField(default=datetime.datetime(2022, 4, 2, 19, 18, 23, 41743, tzinfo=utc), verbose_name='Balance'),
+            field=models.FloatField(default=0.0, verbose_name='Balance'),
             preserve_default=False,
         ),
         migrations.AlterField(

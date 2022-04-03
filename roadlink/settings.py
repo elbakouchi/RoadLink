@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'account.apps.AccountConfig',
-    'driver.apps.DriverConfig',
+    # 'driver.apps.DriverConfig',
     'home.apps.HomeConfig',
     # 'booking.apps.BookingConfig',
     'vehicle.apps.VehicleConfig',

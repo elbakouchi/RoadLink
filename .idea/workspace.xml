@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a8bb932-2713-4b5c-9176-03918bcbd790" name="Changes" comment="remove owner column">
+    <list default="true" id="2a8bb932-2713-4b5c-9176-03918bcbd790" name="Changes" comment="remove some useless fields">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booking/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booking/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booking/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booking/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/budget/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/district/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/district/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mission/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mission/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/report/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/report/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roadlink/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/roadlink/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roadlink/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/roadlink/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vehicle/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/vehicle/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +129,35 @@
       <option name="project" value="LOCAL" />
       <updated>1649008064172</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="remove useless apps, add created and updated at">
+      <created>1649011736490</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1649011736490</updated>
+    </task>
+    <task id="LOCAL-00015" summary="created at, updated at migrations">
+      <created>1649011780411</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1649011780411</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add parking model">
+      <created>1649015672717</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1649015672717</updated>
+    </task>
+    <task id="LOCAL-00017" summary="remove some useless fields">
+      <created>1649016224220</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1649016224220</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,6 +184,10 @@
     <MESSAGE value="reorder fields appearance" />
     <MESSAGE value="fix field" />
     <MESSAGE value="remove owner column" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove owner column" />
+    <MESSAGE value="remove useless apps, add created and updated at" />
+    <MESSAGE value="created at, updated at migrations" />
+    <MESSAGE value="add parking model" />
+    <MESSAGE value="remove some useless fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove some useless fields" />
   </component>
 </project>

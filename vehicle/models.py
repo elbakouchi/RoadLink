@@ -15,7 +15,7 @@ class Parking(models.Model):
 
 class Vehicle(models.Model):
     VEHICLE_STATUS_CHOICES = (
-        ('B', 'En sortie'),
+        ('B', 'En mission'),
         ('NB', 'Dans le parc'),
         ('NB', 'En panne'),
         ('R', 'En réparation'),

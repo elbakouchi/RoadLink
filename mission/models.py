@@ -13,6 +13,7 @@ class Mission(models.Model):
         ('H', 'Hybride')
 
     )
+    voucher_number = models.CharField("N° Bon", default="", max_length=50)
     vehicle = models.ForeignKey(Vehicle, default=None, on_delete=models.CASCADE, verbose_name="Véhicule")
     beneficiary = models.CharField(verbose_name="Bénéficiaire", max_length=200, default="")
     district = models.ForeignKey(District, default=None, null=True, on_delete=models.CASCADE, verbose_name="Division")

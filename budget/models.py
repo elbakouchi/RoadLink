@@ -29,7 +29,7 @@ class Acquittance(models.Model):
     beneficiary = models.CharField(verbose_name='Bénéficiaire', max_length=200, default="")
     allocation = models.IntegerField("Affectation", max_length=1, default=Allocations.BASIC, \
                                      choices=Allocations.choices)
-    assignedAt = models.DateField(default=None)
+    assignedAt = models.DateField("Date d'attribution", default=None)
     log_number = models.IntegerField("Numéro de carnet de bord", default=None)
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE, default=None)
     amount = models.DecimalField("Montant", default=1000.0, decimal_places=2, max_digits=7)

@@ -34,7 +34,7 @@ class Vehicle(models.Model):
     mileage = models.DecimalField("Kilométrage", max_digits=20, default=0, decimal_places=0)
     vehicle_type = models.CharField("Type de véhicule", max_length=1, default='P', choices=VEHICLE_TYPE_CHOICES)
     image = models.ImageField(upload_to="vehicle_image", default="default.png", blank=True)
-    owner = models.ForeignKey("Propriètaire", User, default=None, blank=True)
+    owner = models.ForeignKey(User, default=None, blank=True, verbose_name="Propriètaire")
     cost_per_km = models.DecimalField("Consommation par kilomètre", max_digits=20, default=0, decimal_places=2, blank=True)
     price = models.DecimalField('Prix', max_digits=20, default="0", decimal_places=3, blank=True)
 

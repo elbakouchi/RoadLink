@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a8bb932-2713-4b5c-9176-03918bcbd790" name="Changes" comment="save work">
-      <change beforePath="$PROJECT_DIR$/driver/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/driver/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mission/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mission/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mission/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mission/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roadlink/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/roadlink/settings.py" afterDir="false" />
+    <list default="true" id="2a8bb932-2713-4b5c-9176-03918bcbd790" name="Changes" comment="add voucher field to mission">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roadlink/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/roadlink/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vehicle/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/vehicle/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vehicle/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vehicle/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +82,28 @@
       <option name="project" value="LOCAL" />
       <updated>1648930510319</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="district app">
+      <created>1648993320162</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1648993320162</updated>
+    </task>
+    <task id="LOCAL-00008" summary="mission, district admin">
+      <created>1648993340184</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1648993340184</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add voucher field to mission">
+      <created>1648994608335</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1648994608335</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,6 +123,9 @@
     <MESSAGE value="fix balance default value" />
     <MESSAGE value="mission app" />
     <MESSAGE value="save work" />
-    <option name="LAST_COMMIT_MESSAGE" value="save work" />
+    <MESSAGE value="district app" />
+    <MESSAGE value="mission, district admin" />
+    <MESSAGE value="add voucher field to mission" />
+    <option name="LAST_COMMIT_MESSAGE" value="add voucher field to mission" />
   </component>
 </project>

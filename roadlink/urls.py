@@ -21,9 +21,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
     path('driver/', include('driver.urls')),
-    path('booking/', include('booking.urls')),
-    path('repair/', include('repair.urls')),
+    # path('booking/', include('booking.urls')),
+    # path('repair/', include('repair.urls')),
     path('vehicle/', include('vehicle.urls')),
     path('', include('home.urls')),
-    path('report/', include('report.urls'))
+    # path('report/', include('report.urls'))
 ]

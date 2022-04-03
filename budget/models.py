@@ -7,3 +7,11 @@ class Budget(models.Model):
     fiscal_year_end = models.DateField(verbose_name="Date fin d'exercice")
     amount = models.FloatField(verbose_name="Montant initial")
     balance = models.FloatField(verbose_name="Balance")
+
+    createdAt = models.DateTimeField(auto_now_add=True)
+    updatedAt = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Budget"
+        verbose_name_plural = "Budgets"
+        ordering = ("-createdAt",)

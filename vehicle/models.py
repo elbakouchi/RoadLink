@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# Create your models here.
 class Vehicle(models.Model):
     VEHICLE_STATUS_CHOICES = (
         ('B', 'En sortie'),
@@ -35,8 +34,16 @@ class Vehicle(models.Model):
     vehicle_type = models.CharField("Type de véhicule", max_length=1, default='P', choices=VEHICLE_TYPE_CHOICES)
     image = models.ImageField(upload_to="vehicle_image", default="default.png", blank=True)
     # owner = models.ForeignKey(User, default=None, blank=True, verbose_name="Propriètaire")
-    cost_per_km = models.DecimalField("Consommation par kilomètre", max_digits=20, default=0, decimal_places=2, blank=True)
+    cost_per_km = models.DecimalField("Consommation par kilomètre", max_digits=20, default=0, decimal_places=2,
+                                      blank=True)
     price = models.DecimalField('Prix', max_digits=20, default="0", decimal_places=3, blank=True)
+    createdAt = models.DateTimeField(auto_now_add=True)
+    updatedAt = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Véhicule"
+        verbose_name_plural = "Véhicules"
+        ordering = ("-createdAt",)
 
     def __str__(self):
         return self.registration_plate

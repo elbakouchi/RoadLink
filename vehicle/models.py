@@ -7,6 +7,9 @@ class Parking(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return "Parc %s" % self.name
+
     class Meta:
         verbose_name = "Parc"
         verbose_name_plural = "Parcs"

@@ -62,4 +62,4 @@ class Vehicle(models.Model):
         ordering = ("-createdAt",)
 
     def __str__(self):
-        return self.registration_plate
+        return "%s - %s %s" % (self.registration_plate, self.brand, self.model)

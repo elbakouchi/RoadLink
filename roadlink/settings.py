@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'geopy',
     'widget_tweaks',
     'material',
+    'organism',
     'budget',
     'mission',
     'district'

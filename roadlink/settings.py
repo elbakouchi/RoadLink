@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     'budget',
     'mission',
     'district',
-    'provider'
+    'provider',
+    'import_export',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

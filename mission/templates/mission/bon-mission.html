@@ -13,8 +13,14 @@
         body {
             font-family: "Segoe UI";
         }
+        @page {
+ 		    /* size:landscape; */
+ 		    /* prince-shrink-to-fit:auto; */
+ 		     size: Letter;
+            margin: 0in 0.44in 0.2in 0.44in;
+         }
     </style>
-    <title>D.B.R.H.L</title>
+    <title>{{filename}}</title>
 </head>
 <body>
     <div class="container">
@@ -37,7 +43,7 @@
                     <tbody>
                     <tr>
                       <th scope="row" style="width: 170px;">Bénéficiaire</th>
-                      <td>GBN</td>
+                      <td>{{beneficiary}}</td>
                     </tr>
                     <tr>
                       <th scope="row">Division</th>
@@ -49,7 +55,7 @@
                     </tr>
                     <tr>
                       <th scope="row">Date Mission</th>
-                      <td colspan="2">{{mission_date}}</td>
+                      <td colspan="2">{{mission_date|date}}</td>
                     </tr>
                     <tr>
                       <th scope="row">Destination</th>
@@ -81,7 +87,7 @@
                 <h3>L'intéressé</h3>
             </div>
             <div class="col-lg-4">
-                <h3>{{benificiary}}</h3>
+                <h3>{{beneficiary}}</h3>
             </div>
             <div class="col-lg-4">
                 <h3>Visa Chef {{service}}</h3>
@@ -119,7 +125,7 @@
                     <tbody>
                     <tr>
                       <th scope="row"  style="width: 170px;">Bénéficiaire</th>
-                      <td>{{benificiary}}</td>
+                      <td>{{beneficiary}}</td>
                     </tr>
                     <tr>
                       <th scope="row">Division</th>

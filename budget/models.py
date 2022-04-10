@@ -17,6 +17,9 @@ class Budget(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return "%s - %s" % (self.title, self.fiscal_year_start)
+
     class Meta:
         verbose_name = "Budget"
         verbose_name_plural = "Budgets"
@@ -36,6 +39,9 @@ class Acquittance(models.Model):
     observation = models.TextField('Observation', default="", blank=True)
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return "%s - %s" % (self.serial_number, self.beneficiary)
 
     class Meta:
         verbose_name = "Décharge"

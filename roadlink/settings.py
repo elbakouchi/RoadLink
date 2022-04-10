@@ -37,6 +37,7 @@ SECRET_KEY = 'c7#-5a82#$p11h1itg3(e9591bms*)1$9x+#ed5%5pip6psm)&'
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'lepark.herokuapp.com']
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Application definition
 
@@ -52,7 +53,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     # 'booking.apps.BookingConfig',
     'vehicle.apps.VehicleConfig',
-    # 'repair.apps.RepairConfig',
+    'repair.apps.RepairConfig',
     # 'report.apps.ReportConfig',
     'crispy_forms',
     'requests',

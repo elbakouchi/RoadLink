@@ -49,7 +49,7 @@ class Vehicle(models.Model):
     insurance_status = models.CharField("Assurance", max_length=2, default='U', choices=INSURANCE_STATUS_CHOICES)
     # no_of_km_travelled = models.DecimalField(max_digits=20, default=0, decimal_places=0)
     fuel_type = models.CharField("Type carburant", max_length=1, default='P', choices=FUEL_TYPE_CHOICES)
-    mileage = models.DecimalField("Kilométrage", max_digits=20, default=0, decimal_places=0, blank=True)
+    mileage = models.DecimalField("Compteur", max_digits=20, default=0, decimal_places=0, blank=True)
     vehicle_type = models.CharField("Type de véhicule", max_length=1, default='P', choices=VEHICLE_TYPE_CHOICES)
     image = models.ImageField(upload_to="vehicle_image", default="default.png", blank=True)
     # owner = models.ForeignKey(User, default=None, blank=True, verbose_name="Propriètaire")

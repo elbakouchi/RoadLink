@@ -30,7 +30,7 @@ class Acquittance(models.Model):
     serial_number = models.IntegerField("Numéro de décharge", default=None)
     budget = models.ForeignKey(Budget, on_delete=models.CASCADE, default=None)
     beneficiary = models.CharField(verbose_name='Bénéficiaire', max_length=200, default="")
-    allocation = models.IntegerField("Affectation", max_length=1, default=Allocations.BASIC, \
+    allocation = models.IntegerField("Affectation", default=Allocations.BASIC, \
                                      choices=Allocations.choices)
     assignedAt = models.DateField("Date d'attribution", default=None)
     log_number = models.IntegerField("Numéro de carnet de bord", default=None)

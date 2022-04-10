@@ -15,15 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
-admin.site.site_header = 'Le Park Tahnouate'
+admin.site.site_header = 'Le Parc Tahnouate'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
     # path('driver/', include('driver.urls')),
-    # path('booking/', include('booking.urls')),
+    path('mission/', include('mission.urls')),
     # path('repair/', include('repair.urls')),
     path('vehicle/', include('vehicle.urls')),
     path('', include('home.urls')),
     # path('report/', include('report.urls'))
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -29,6 +29,8 @@ class Mission(models.Model):
     district = models.ForeignKey(District, default=None, null=True, on_delete=models.CASCADE, verbose_name='Division')
     description = models.TextField('Mission', default="", blank=True)
     appointment = models.DateField('Date de mission', default=None)
+    departure_time = models.TimeField(auto_now=False, auto_now_add=False, blank=True, verbose_name="Heure départ")
+    return_time = models.DateTimeField(auto_now=False, auto_now_add=False, blank=True, verbose_name="Heure retour")
     destination = models.CharField("Destination", default="", max_length=200, blank=True)
     budget = models.ForeignKey(Budget, default=None, null=True, on_delete=models.CASCADE, verbose_name="Budget")
     quantity = models.IntegerField('Quantité', default=1, blank=True)

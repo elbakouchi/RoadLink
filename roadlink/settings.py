@@ -16,17 +16,16 @@ ROOT_DIR = (
         environ.Path(__file__) - 2
 )  # (bootcamp/config/settings/base.py - 3 = bootcamp/)
 APPS_DIR = ROOT_DIR.path("")
-#print(ROOT_DIR)
+# print(ROOT_DIR)
 APP_DIRS = True
 
 env = environ.Env()
 env.read_env(str(ROOT_DIR.path(".env")))
-#print(env)
+# print(env)
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -37,8 +36,7 @@ SECRET_KEY = 'c7#-5a82#$p11h1itg3(e9591bms*)1$9x+#ed5%5pip6psm)&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','lepark.herokuapp.com']
-
+ALLOWED_HOSTS = ['localhost', 'lepark.herokuapp.com']
 
 # Application definition
 
@@ -64,7 +62,8 @@ INSTALLED_APPS = [
     'organism',
     'budget',
     'mission',
-    'district'
+    'district',
+    'provider'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -85,8 +84,8 @@ ROOT_URLCONF = 'roadlink.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-         "DIRS": [str(APPS_DIR.path("templates"))],
-        #'APP_DIRS': True,
+        "DIRS": [str(APPS_DIR.path("templates"))],
+        # 'APP_DIRS': True,
 
         'OPTIONS': {
             "loaders": [
@@ -110,20 +109,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'roadlink.wsgi.application'
 ASGI_APPLICATION = 'roadlink.asgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-#DATABASES = {
+# DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
-#}
+# }
 
 DATABASES = {"default": env.db("DATABASE_URL")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -143,7 +140,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -156,7 +152,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
@@ -174,7 +169,7 @@ STATICFILES_FINDERS = [
 
 MEDIA_URL = 'roadlink/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'roadlink/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'roadlink/media')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 

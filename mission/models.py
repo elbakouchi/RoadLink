@@ -72,7 +72,7 @@ class Mission(models.Model):
 
     @admin.action(description='Imprimer bon de mission pour une mission pré-séléctionnée')
     def print_mission_voucher(self, disposition="attachment"):
-        filename = f"bon-de-mission-{self.voucher_number}-{time.time()}.pdf"
+        filename = f"bon-de-mission-n°-{self.voucher_number}-{time.time()}.pdf"
         try:
             params = {
                 'beneficiary': self.beneficiary,

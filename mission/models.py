@@ -9,7 +9,7 @@ from organism.models import Organism
 from django.templatetags.static import static
 from django.template.loader import render_to_string
 from weasyprint import HTML, CSS
-#from weasyprint.text.fonts import FontConfiguration
+# from weasyprint.text.fonts import FontConfiguration
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse, HttpResponseNotFound
 import time
@@ -73,22 +73,41 @@ class Mission(models.Model):
     @admin.action(description='Imprimer bon de mission pour une mission pré-séléctionnée')
     def print_mission_voucher(self, disposition="attachment"):
         filename = f"bon-de-mission-{self.voucher_number}-{time.time()}.pdf"
-        params = {
-                  'beneficiary': self.beneficiary,
-                  'mission': self.description,
-                  'ministry': self.organism.ministry,
-                  'province': self.organism.province,
-                  'department': self.organism.department,
-                  'service': self.organism.service,
-                  'division': self.district,
-                  'mission_date': self.appointment,
-                  'destination': self.destination,
-                  'vehicle': self.vehicle,
-                  'amount': self.acquittance.amount,
-                  'filename': filename,
-                  'fuel': self.get_fuelname(),
-                  'serial_number': self.voucher_number
-                }
+        try:
+            params = {
+                'beneficiary': self.beneficiary,
+                'mission': self.description,
+                'ministry': self.organism.ministry,
+                'province': self.organism.province,
+                'department': self.organism.department,
+                'service': self.organism.service,
+                'division': self.district,
+                'mission_date': self.appointment,
+                'destination': self.destination,
+                'vehicle': self.vehicle,
+                'amount': self.acquittance.amount,
+                'filename': filename,
+                'fuel': self.get_fuelname(),
+                'serial_number': self.voucher_number
+            }
+        except:
+            params = {
+                'beneficiary': self.beneficiary,
+                'mission': self.description,
+                'ministry': '',
+                'province': '',
+                'department': '',
+                'service': '',
+                'division': self.district,
+                'mission_date': self.appointment,
+                'destination': self.destination,
+                'vehicle': self.vehicle,
+                'amount': '',
+                'filename': filename,
+                'fuel': self.get_fuelname(),
+                'serial_number': self.voucher_number
+            }
+
         # html = HTML(string='<h1>The title</h1>')
         # font_config = FontConfiguration()
         css = CSS(string='''
@@ -96,12 +115,13 @@ class Mission(models.Model):
                 font-family: "Segoe UI";
                 src: url(https://cdn.jsdelivr.net/npm/segoe-fonts@1.0.1/fonts/normal/segoeui.woff);
             }
-            body { font-family: "Segoe UI" }''') #, font_config=font_config)
+            body { font-family: "Segoe UI" }''')  # , font_config=font_config)
         html_string = render_to_string('mission/bon-mission.html', params)
 
         html = HTML(string=html_string)
 
-        html.write_pdf(target=f'/tmp/{filename}', stylesheets=[css, "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"]) #, font_config=font_config)
+        html.write_pdf(target=f'/tmp/{filename}', stylesheets=[css])
+        # "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"])  # , font_config=font_config)
 
         fs = FileSystemStorage('/tmp')
         with fs.open(filename) as pdf:

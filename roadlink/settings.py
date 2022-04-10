@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     # 'booking.apps.BookingConfig',
     'vehicle.apps.VehicleConfig',
     'repair.apps.RepairConfig',
-    # 'report.apps.ReportConfig',
+    'report.apps.ReportConfig',
     'crispy_forms',
     'requests',
     'geopy',

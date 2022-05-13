@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'vehicle.apps.VehicleConfig',
     'repair.apps.RepairConfig',
     'report.apps.ReportConfig',
+    'acquittance.apps.AcquittanceConfig',
     'crispy_forms',
     'requests',
     'geopy',

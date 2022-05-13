@@ -1,12 +1,27 @@
 from django.db import models
 
 
+class Affectation(models.Model):
+    name = models.CharField("Intitulé", max_length=150, blank=False)
+    createdAt = models.DateTimeField(auto_now_add=True)
+    updatedAt = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Affectation"
+        verbose_name_plural = "Affectation"
+        ordering = ("-createdAt",)
+
+    def __str__(self):
+        return self.name
+
+
 class Organism(models.Model):
     ministry = models.CharField("Ministère de tutelle", max_length=50, default="Ministère de l'intérieur", blank=True)
     province = models.CharField("Province", max_length=50, default="", blank=True)
     department = models.CharField("Département", max_length=70, default="", blank=True)
     service = models.CharField("Service", max_length=50, default="", blank=True)
     telephone = models.CharField("Téléphone", max_length=15, default="", blank=True)
+    fax = models.CharField(max_length=15, default="", blank=True)
     address = models.CharField("Adresse", max_length=200, default="", blank=True)
     description = models.TextField("Description", default="", blank=True)
     logo = models.ImageField(upload_to="vehicle_image", default="default.png", blank=True)

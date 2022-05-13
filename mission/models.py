@@ -4,7 +4,7 @@ from django.utils.html import format_html
 from django.urls import reverse_lazy
 from vehicle.models import Vehicle
 from district.models import District
-from budget.models import Budget, Acquittance
+from budget.models import Budget
 from organism.models import Organism
 from django.templatetags.static import static
 from django.template.loader import render_to_string
@@ -23,7 +23,7 @@ class Mission(models.Model):
         ('H', 'Hybride')
 
     )
-    voucher_number = models.CharField('N° Bon', default="", max_length=50)
+    voucher_number = models.PositiveIntegerField('N° Bon', default="", max_length=50)
     vehicle = models.ForeignKey(Vehicle, default=None, on_delete=models.CASCADE, verbose_name='Véhicule')
     beneficiary = models.CharField(verbose_name='Bénéficiaire', max_length=200, default="")
     district = models.ForeignKey(District, default=None, null=True, on_delete=models.CASCADE, verbose_name='Division')
@@ -33,13 +33,11 @@ class Mission(models.Model):
     return_time = models.DateTimeField(auto_now=False, auto_now_add=False, blank=True, verbose_name="Heure retour")
     destination = models.CharField("Destination", default="", max_length=200, blank=True)
     budget = models.ForeignKey(Budget, default=None, null=True, on_delete=models.CASCADE, verbose_name="Budget")
-    quantity = models.IntegerField('Quantité', default=1, blank=True)
-    acquittance = models.ForeignKey(Acquittance, default=None, null=True,
-                                    on_delete=models.CASCADE, verbose_name="Décharge")
+    quantity = models.PositiveSmallIntegerField('Quantité', default=1, blank=True)
+
     fuel = models.CharField('Type carburant', max_length=2, choices=fuel_CHOICES, default='D')
     observation = models.TextField('Observation', default="", blank=True)
-    organism = models.ForeignKey(Organism, default=None, null=True,
-                                 on_delete=models.CASCADE, verbose_name="Service")
+
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
 

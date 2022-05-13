@@ -8,7 +8,7 @@ class Affectation(models.Model):
 
     class Meta:
         verbose_name = "Affectation"
-        verbose_name_plural = "Affectation"
+        verbose_name_plural = "Affectations"
         ordering = ("-createdAt",)
 
     def __str__(self):

@@ -9,7 +9,7 @@ class InsuranceProvider(models.Model):
 
     class Meta:
         verbose_name = "Assureur"
-        verbose_name_plural = "Assureur"
+        verbose_name_plural = "Assureurs"
         ordering = ("-createdAt",)
 
     def __str__(self):

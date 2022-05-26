@@ -1,6 +1,6 @@
 from django.db import models
 from vehicle.models import Vehicle
-from django_q.tasks import async_task
+# from django_q.tasks import async_task
 
 
 class InsuranceProvider(models.Model):
@@ -54,18 +54,20 @@ class Provider(models.Model):
 
 class GasSupplier(Provider):
     class Meta:
-        verbose_name = "Distributeur Carburant"
-        verbose_name_plural = "Distributeurs Carburant"
+        verbose_name = "Distributeur carburant"
+        verbose_name_plural = "Distributeurs carburant"
         ordering = ("-createdAt",)
 
     def __str__(self):
         return self.name
 
+
+'''
 # Message on object change
 from django.contrib.auth.models import User
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
-from django_q.tasks import async_task
+#from django_q.tasks import async_task
 from datetime import datetime
 
 # set up the pre_save signal for our user
@@ -74,7 +76,7 @@ def insurance_changed(sender, instance, **kwargs):
     try:
         insurance = sender.objects.get(pk=instance.pk)
     except sender.DoesNotExist:
-        pass  # new user
+        pass
     else:
         today = datetime.date.today()
         delta = insurance.endDate() - today
@@ -82,6 +84,9 @@ def insurance_changed(sender, instance, **kwargs):
             async_task('inform_everyone', instance)
 
 
+
+'''
+'''
 def inform_everyone(user):
     mails = []
     for u in User.objects.exclude(pk=user.pk):
@@ -89,3 +94,6 @@ def inform_everyone(user):
         mails.append(('New email', msg,
                       'from@example.com', [u.email]))
     return send_mass_mail(mails)
+
+
+'''

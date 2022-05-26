@@ -14,7 +14,7 @@ class Intervention(models.Model):
         verbose_name_plural = "Types interventions"
 
     def __str__(self):
-        return f"{self.name} {self.provider}"
+        return f"{self.name}"
 
 
 class Maintenance(models.Model):

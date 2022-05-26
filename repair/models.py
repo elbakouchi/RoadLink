@@ -2,14 +2,16 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from vehicle.models import Vehicle
-from provider.models import Provider
+from provider.models import ServiceProvider
 from django.contrib.auth.models import User
 
 
 class Intervention(models.Model):
     name = models.CharField("Intitulé", max_length=150, default="")
-    cost = models.DecimalField("Coût", default=1000.0, decimal_places=2, max_digits=7)
-    provider = models.ForeignKey(Provider, blank=True, verbose_name="Prestataire", on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Type intervention"
+        verbose_name_plural = "Types interventions"
 
     def __str__(self):
         return f"{self.name} {self.provider}"
@@ -18,16 +20,18 @@ class Intervention(models.Model):
 class Maintenance(models.Model):
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE, verbose_name="Véhicule")
     intervention = models.ForeignKey(Intervention, on_delete=models.CASCADE)
-    contractedBy = models.CharField(default="", blank=True, max_length=150, verbose_name="Contracté par")
-    supervision = models.CharField(default="", blank=True, max_length=150, verbose_name="Supervisé par")
+    cost = models.DecimalField("Coût", default=1000.0, decimal_places=2, max_digits=7)
+    provider = models.ForeignKey(ServiceProvider, blank=True, verbose_name="Prestataire", on_delete=models.CASCADE)
+
     status_CHOICES = (
-        ('S', 'Accomplie'),
-        ('NS', 'Non accomplie')
+        ('P', 'En cours'),
+        ('D', 'Accomplie')
+
     )
     status = models.CharField(
-        max_length=2,
+        max_length=1,
         choices=status_CHOICES,
-        default='NS',
+        default='P',
     )
     createdBy = models.ForeignKey(User, blank=True, on_delete=models.CASCADE, verbose_name="Créé par")
     createdAt = models.DateTimeField(auto_now_add=True)

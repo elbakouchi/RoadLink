@@ -40,6 +40,8 @@ class Provider(models.Model):
     email = models.CharField("Adresse email", max_length=100, default="", blank=True)
     phone = models.CharField("Téléphone", max_length=100, default="", blank=True)
     address = models.CharField("Adresse", max_length=100, default="", blank=True)
+    rib = models.CharField("R.I.B", max_length=100, default="", blank=True)
+
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
 
@@ -51,6 +53,15 @@ class Provider(models.Model):
     def __str__(self):
         return self.name
 
+
+class ServiceProvider(Provider):
+    class Meta:
+        verbose_name = "Prestataire de services"
+        verbose_name_plural = "Prestataires de services"
+        ordering = ("-createdAt",)
+
+    def __str__(self):
+        return self.name
 
 class GasSupplier(Provider):
     class Meta:

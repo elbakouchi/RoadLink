@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Intervention, Maintenance
+from provider.models import Provider
 
-# Register your models here.
 admin.site.register(Intervention)
 admin.site.register(Maintenance)
 

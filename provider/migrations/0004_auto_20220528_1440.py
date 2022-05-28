@@ -11,25 +11,8 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='ServiceProvider',
-            fields=[
-                ('provider_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='provider.provider')),
-            ],
-            options={
-                'verbose_name': 'Prestataire de services',
-                'verbose_name_plural': 'Prestataires de services',
-                'ordering': ('-createdAt',),
-            },
-            bases=('provider.provider',),
-        ),
         migrations.AlterModelOptions(
             name='gassupplier',
             options={'ordering': ('-createdAt',), 'verbose_name': 'Distributeur carburant', 'verbose_name_plural': 'Distributeurs carburant'},
-        ),
-        migrations.AddField(
-            model_name='provider',
-            name='rib',
-            field=models.CharField(blank=True, default='', max_length=100, verbose_name='R.I.B'),
-        ),
+        )
     ]

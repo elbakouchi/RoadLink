@@ -11,18 +11,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='ServiceProvider',
-            fields=[
-                ('provider_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='provider.provider')),
-            ],
-            options={
-                'verbose_name': 'Prestataire de services',
-                'verbose_name_plural': 'Prestataires de services',
-                'ordering': ('-createdAt',),
-            },
-            bases=('provider.provider',),
-        ),
+
         migrations.RemoveField(
             model_name='insuranceprovider',
             name='createdAt',
@@ -42,12 +31,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='insuranceprovider',
             name='provider_ptr',
-            field=models.OneToOneField(auto_created=True, default=None, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='provider.provider'),
+            field=models.OneToOneField(auto_created=True, blank=True, default=None,
+                                       on_delete=django.db.models.deletion.CASCADE,
+                                       parent_link=True, primary_key=True, serialize=False, to='provider.provider'),
             preserve_default=False,
-        ),
-        migrations.AddField(
-            model_name='provider',
-            name='rib',
-            field=models.CharField(blank=True, default='', max_length=100, verbose_name='R.I.B'),
-        ),
+        )
     ]

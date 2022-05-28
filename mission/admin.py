@@ -1,6 +1,6 @@
 from django.urls import path
 from django.shortcuts import redirect, get_object_or_404
-from django.contrib import admin
+from django.contrib import admin, messages
 from .models import Mission
 
 
@@ -9,6 +9,10 @@ class MissionAdmin(admin.ModelAdmin):
                     "district", "download_mission_voucher_button",
                     "print_mission_voucher_button")
     actions = [Mission.print_mission_voucher]
+
+    def save_model(self, request, obj, form, change):
+        messages.add_message(request, messages.INFO, 'Merci de mettre à jour le kilométrage du véhicule')
+        super(MissionAdmin, self).save_model(request, obj, form, change)
 
     def get_urls(self):
         urls = super().get_urls()

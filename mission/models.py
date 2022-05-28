@@ -1,17 +1,19 @@
 from django.db import models
-from django.contrib import admin
+from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponse, HttpResponseNotFound
+from django.db.models.signals import pre_save, post_save
+from django.dispatch import receiver
+from django.contrib import admin, messages
 from django.utils.html import format_html
+from django.templatetags.static import static
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from vehicle.models import Vehicle
 from district.models import District
 from budget.models import Budget
 from organism.models import Organism
-from django.templatetags.static import static
-from django.template.loader import render_to_string
 from weasyprint import HTML, CSS
 # from weasyprint.text.fonts import FontConfiguration
-from django.core.files.storage import FileSystemStorage
-from django.http import HttpResponse, HttpResponseNotFound
 import time
 
 
@@ -130,3 +132,23 @@ class Mission(models.Model):
             return response
 
         return response
+
+
+'''
+
+
+@receiver(post_save, sender=Mission)
+def mission_created(sender, instance, **kwargs):
+    try:
+        # mission = sender.objects.get(pk=instance.pk)
+        vehicle = sender.objects.get_vehcile(pk.instance.pk)
+    except sender.DoesNotExist:
+        pass
+    else:
+        today = datetime.date.today()
+        delta = insurance.endDate() - today
+        if delta <= 7:
+            async_task('inform_everyone', instance)
+
+
+'''

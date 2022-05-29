@@ -1,6 +1,6 @@
 from django.db import models
 from vehicle.models import Vehicle
-
+from .managers import InsuranceManager
 # from django_q.tasks import async_task
 
 '''
@@ -77,6 +77,7 @@ class Insurance(models.Model):
     endDate = models.DateField(verbose_name="Date expiration", blank=True, null=False)
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
+    objects = InsuranceManager.as_manager()
 
     class Meta:
         verbose_name = "Assurance"

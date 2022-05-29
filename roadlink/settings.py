@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'district',
     'provider',
     'import_export',
+    'django_q'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -184,3 +185,12 @@ EMAIL_HOST_PASSWORD = 'pass'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+Q_CLUSTER = {
+    'name': 'RoadLink',
+    'workers': 8,
+    'timeout': 60,
+    'orm': 'default',
+    'broker_class': 'roadlink.broker.RoadLinkBroker'
+}

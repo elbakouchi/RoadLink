@@ -1,0 +1,62 @@
+{% extends 'adminlte/login.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+{% block title %}DBHL{% endblock %}
+{% block content %}
+{%block form %}
+<div id="login-page" class="row">
+    <div style="padding-left: 13%;" class="col s12 z-depth-4 card-panel">
+      <form class="login-form" method="POST" action="/account/login" >
+        {% csrf_token %}
+        <div class="row">
+          <div class="input-field col s12 center">
+            <img src="{% static 'logo.jpg' %}">
+          </div>
+        </div>
+        {% if form.errors %}
+            <div id="card-alert" class="card red lighten-5">
+                      <div class="card-content red-text">
+                        <p>Wrong Username/Password!</p>
+                      </div>
+                    </div>
+            {% endif %}
+        
+        <div class="row">
+          <div class="input-field col s12">
+            {% render_field form.username type="text" id="username" class="validate" %}
+            <label for="username" class="center-align">Username</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <!-- <i class="mdi-action-lock-outline prefix"></i> -->
+            
+            {% render_field form.password type="password" id="password" class="validate" %}
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">          
+          <div class="input-field col s12 m12 l12  login-text">
+              <input type="checkbox" id="remember-me" />
+              <label for="remember-me">Remember me</label>
+          </div>
+        </div>
+        <div class="row">
+          <div style="padding-left: 40%;" class="input-field col s12">
+            <input type="submit" class="btn s12" value="Login">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m6 l6">
+            <p class="margin medium-small"><a href="http://localhost:8000/account/signup">Register Now!</a></p>
+          </div>
+          <div class="input-field col s6 m6 l6">
+              <p class="margin right-align medium-small"><a href="page-forgot-password.html">Forgot password ?</a></p>
+          </div>          
+        </div>
+
+      </form>
+    </div>
+{% endblock %}
+{% endblock %}

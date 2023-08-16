@@ -1,0 +1,435 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-16 00:38+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:16
+msgid "Divisions"
+msgstr "Divisions"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:24
+msgid "List Divisions"
+msgstr "Liste des Divisions"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:30
+#, fuzzy
+#| msgid "Create District"
+msgid "Create Division"
+msgstr "Créer Division"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:41
+msgid "Bookings"
+msgstr "Réservations"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:49
+msgid "List Bookings"
+msgstr "Liste des Réservations"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:55
+msgid "Create Booking"
+msgstr "Créer Réservation"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:66
+#: .\templates\vehicle\parking_list.html:9
+msgid "Parkings"
+msgstr "Parkings"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:74
+msgid "List Parkings"
+msgstr "Liste des Parkings"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:80
+#: .\templates\vehicle\parking_form.html:4
+#: .\templates\vehicle\parking_form.html:9
+#, fuzzy
+#| msgid "Create District"
+msgid "Create Parking"
+msgstr "Créer Parking"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:92
+#: .\templates\vehicle\vehicle_list.html:9
+msgid "Vehicles"
+msgstr "Véhicules"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:100
+msgid "List Vehicles"
+msgstr "Liste des Véhicules"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:106
+#: .\templates\vehicle\vehicle_form.html:4
+#: .\templates\vehicle\vehicle_form.html:9
+#, fuzzy
+#| msgid "Create District"
+msgid "Create Vehicle"
+msgstr "Créer Véhicule"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:117
+#: .\templates\budget\budget_list.html:9
+msgid "Budgets"
+msgstr "Budgets"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:125
+msgid "List Budgets"
+msgstr "Liste des Budgets"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:131
+#: .\templates\budget\budget_form.html:5 .\templates\budget\budget_form.html:12
+msgid "Create Budget"
+msgstr "Créer Budget"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:143
+#: .\templates\organism\affectation_list.html:9
+msgid "Affectations"
+msgstr "Affectations"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:151
+msgid "List Affectations"
+msgstr "Liste des Affectations"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:158
+#: .\templates\organism\affectation_form.html:5
+#: .\templates\organism\affectation_form.html:12
+msgid "Create Affectation"
+msgstr "Créer Affectation"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:171
+#: .\templates\organism\organism_list.html:9
+msgid "Organisms"
+msgstr "Organismes"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:179
+msgid "List Organisms"
+msgstr "Liste des Organismes"
+
+#: .\templates\adminlte\lib\_main_sidebar.html:186
+#: .\templates\organism\organism_form.html:5
+
+
+#: .\templates\organism\organism_form.html:12
+#, fuzzy
+#| msgid "Create District"
+msgid "Create Organism"
+msgstr "Créer Organisme"
+
+#: .\templates\booking\booking_confirm_delete.html:4
+#: .\templates\booking\booking_confirm_delete.html:9
+msgid "Delete Book"
+msgstr "Supprimer Réservation"
+
+#: .\templates\booking\booking_confirm_delete.html:12
+#: .\templates\budget\budget_confirm_delete.html:12
+#: .\templates\division\district_confirm_delete.html:12
+#: .\templates\organism\affectation_confirm_delete.html:12
+#: .\templates\organism\organism_confirm_delete.html:12
+#: .\templates\vehicle\parking_confirm_delete.html:12
+#: .\templates\vehicle\vehicle_confirm_delete.html:12
+msgid "Are you sure you want to delete"
+msgstr "Êtes-vous sûr de vouloir supprimer"
+
+#: .\templates\booking\booking_confirm_delete.html:16
+#: .\templates\booking\booking_list.html:39
+#: .\templates\budget\budget_confirm_delete.html:16
+#: .\templates\budget\budget_list.html:40
+#: .\templates\division\district_confirm_delete.html:16
+#: .\templates\division\district_list.html:39
+#: .\templates\organism\affectation_confirm_delete.html:16
+#: .\templates\organism\affectation_list.html:36
+#: .\templates\organism\organism_confirm_delete.html:16
+#: .\templates\organism\organism_list.html:42
+#: .\templates\vehicle\parking_confirm_delete.html:16
+#: .\templates\vehicle\parking_list.html:33
+#: .\templates\vehicle\vehicle_confirm_delete.html:16
+#: .\templates\vehicle\vehicle_list.html:37
+msgid "Delete"
+msgstr "Supprimer"
+
+#: .\templates\booking\booking_confirm_delete.html:19
+#: .\templates\booking\booking_form.html:19
+#: .\templates\budget\budget_confirm_delete.html:19
+#: .\templates\budget\budget_form.html:23
+#: .\templates\division\district_form.html:22
+#: .\templates\organism\affectation_form.html:23
+#: .\templates\organism\organism_form.html:23
+#: .\templates\vehicle\parking_form.html:19
+#: .\templates\vehicle\vehicle_form.html:19
+msgid "Cancel"
+msgstr "Annuler"
+
+#: .\templates\booking\booking_form.html:4
+#: .\templates\booking\booking_form.html:9
+msgid "Edit Book"
+msgstr "Modifier Réservation"
+
+#: .\templates\booking\booking_form.html:4
+#: .\templates\booking\booking_form.html:9
+msgid "Create Book"
+msgstr "Créer Réservation"
+
+#: .\templates\booking\booking_form.html:16
+#: .\templates\budget\budget_form.html:20
+#: .\templates\division\district_form.html:19
+#: .\templates\organism\affectation_form.html:20
+#: .\templates\organism\organism_form.html:20
+#: .\templates\vehicle\parking_form.html:16
+#: .\templates\vehicle\vehicle_form.html:16
+msgid "Save Changes"
+msgstr "Enregistrer les Modifications"
+
+#: .\templates\booking\booking_form.html:16
+#: .\templates\budget\budget_form.html:20
+#: .\templates\division\district_form.html:19
+#: .\templates\organism\affectation_form.html:20
+#: .\templates\organism\organism_form.html:20
+#: .\templates\vehicle\parking_form.html:16
+#: .\templates\vehicle\vehicle_form.html:16
+msgid "Create"
+msgstr "Créer"
+
+#: .\templates\booking\booking_list.html:4
+msgid "Book List"
+msgstr "Liste des Réservations"
+
+#: .\templates\booking\booking_list.html:9
+msgid "Books"
+msgstr "Réservations"
+
+#: .\templates\booking\booking_list.html:12
+msgid "Add New Book"
+msgstr "Ajouter une Nouvelle Réservation"
+
+#: .\templates\booking\booking_list.html:20
+msgid "Source"
+msgstr "Source"
+
+#: .\templates\booking\booking_list.html:21
+msgid "Destination"
+msgstr "Destination"
+
+#: .\templates\booking\booking_list.html:22
+msgid "Status"
+msgstr "Statut"
+
+#: .\templates\booking\booking_list.html:23
+msgid "Allotted User"
+msgstr "Utilisateur attribué"
+
+#:
+
+ .\templates\booking\booking_list.html:24
+#: .\templates\budget\budget_list.html:25
+#: .\templates\division\district_list.html:24
+#: .\templates\organism\affectation_list.html:23
+#: .\templates\organism\organism_list.html:26
+#: .\templates\vehicle\parking_list.html:21
+#: .\templates\vehicle\vehicle_list.html:23
+msgid "Actions"
+msgstr "Actions"
+
+#: .\templates\booking\booking_list.html:36
+#: .\templates\budget\budget_list.html:37
+#: .\templates\division\district_list.html:36
+#: .\templates\organism\affectation_list.html:33
+#: .\templates\organism\organism_list.html:39
+#: .\templates\vehicle\parking_list.html:30
+#: .\templates\vehicle\vehicle_list.html:34
+msgid "Edit"
+msgstr "Modifier"
+
+#: .\templates\budget\budget_confirm_delete.html:4
+#: .\templates\budget\budget_confirm_delete.html:9
+msgid "Delete Budget"
+msgstr "Supprimer Budget"
+
+#: .\templates\budget\budget_form.html:5 .\templates\budget\budget_form.html:12
+msgid "Edit Budget"
+msgstr "Modifier Budget"
+
+#: .\templates\budget\budget_list.html:4
+msgid "Budget List"
+msgstr "Liste des Budgets"
+
+#: .\templates\budget\budget_list.html:13
+msgid "Add New Budget"
+msgstr "Ajouter un Nouveau Budget"
+
+#: .\templates\budget\budget_list.html:22
+msgid "Title"
+msgstr "Titre"
+
+#: .\templates\budget\budget_list.html:23
+msgid "Fiscal Year Start"
+msgstr "Début de l'Année fiscale"
+
+#: .\templates\budget\budget_list.html:24
+msgid "Fiscal Year End"
+msgstr "Fin de l'Année fiscale"
+
+#: .\templates\division\district_confirm_delete.html:4
+#: .\templates\division\district_confirm_delete.html:9
+#, fuzzy
+#| msgid "Create District"
+msgid "Delete District"
+msgstr "Supprimer District"
+
+#: .\templates\division\district_form.html:4
+#: .\templates\division\district_form.html:9
+msgid "Edit District"
+msgstr "Modifier District"
+
+#: .\templates\division\district_form.html:4
+#: .\templates\division\district_form.html:9
+msgid "Create District"
+msgstr "Créer District"
+
+#: .\templates\division\district_form.html:15
+#: .\templates\division\district_list.html:21
+#: .\templates\organism\affectation_list.html:22
+#: .\templates\vehicle\parking_list.html:20
+msgid "Name"
+msgstr "Nom"
+
+#: .\templates\division\district_list.html:4
+#, fuzzy
+#| msgid "Edit District"
+msgid "District List"
+msgstr "Liste des Districts"
+
+#: .\templates\division\district_list.html:9
+#, fuzzy
+#| msgid "Edit District"
+msgid "Districts"
+msgstr "Districts"
+
+#: .\templates\division\district_list.html:12
+#, fuzzy
+#| msgid "Edit District"
+msgid "Add New District"
+msgstr "Ajouter un Nouveau District"
+
+#: .\templates\division\district_list.html:22
+#, fuzzy
+#| msgid "Create District"
+msgid "Created At"
+msgstr "Créer District"
+
+#: .\templates\division\district_list.html:23
+msgid "Updated At"
+msgstr "Mise à Jour le"
+
+#: .\templates\organism\affectation_confirm_delete.html:4
+#: .\templates\organism\affectation_confirm_delete.html:9
+msgid "Delete Affectation"
+msgstr "Supprimer Affectation"
+
+#: .\templates\organism\affectation_form.html:5
+#: .\templates\organism\affectation_form.html:12
+msgid "Edit Affectation"
+msgstr "Modifier Affectation"
+
+#: .\templates\organism\affectation_list.html:4
+msgid "Affectation List"
+msgstr "Liste des Affectations"
+
+#: .\templates\organism\affectation_list.html:13
+msgid "Add New Affectation"
+msgstr "Ajouter une Nouvelle Affectation"
+
+#: .\templates\organism\organism_confirm_delete.html:4
+#: .\templates\organism\organism_confirm_delete.html:9
+msgid "Delete Organism"
+msgstr "Supprimer Organisme"
+
+#: .\templates\organism\organism_form.html:5
+#: .\templates\organism\organism_form.html:12
+msgid "Edit Organism"
+msgstr "Modifier Organisme"
+
+#: .\templates\organism\organism_list.html:4
+msgid "Organism List"
+msgstr "Liste des Organismes"
+
+#: .\templates\organism\organism_list
+
+.html:13
+msgid "Add New Organism"
+msgstr "Ajouter un Nouvel Organisme"
+
+#: .\templates\organism\organism_list.html:22
+msgid "Ministry"
+msgstr "Ministère"
+
+#: .\templates\organism\organism_list.html:23
+msgid "Province"
+msgstr "Province"
+
+#: .\templates\organism\organism_list.html:24
+msgid "Department"
+msgstr "Département"
+
+#: .\templates\organism\organism_list.html:25
+msgid "Service"
+msgstr "Service"
+
+#: .\templates\vehicle\parking_confirm_delete.html:4
+#: .\templates\vehicle\parking_confirm_delete.html:9
+msgid "Delete Parking"
+msgstr "Supprimer Parking"
+
+#: .\templates\vehicle\parking_form.html:4
+#: .\templates\vehicle\parking_form.html:9
+msgid "Edit Parking"
+msgstr "Modifier Parking"
+
+#: .\templates\vehicle\parking_list.html:4
+msgid "Parking List"
+msgstr "Liste des Parkings"
+
+#: .\templates\vehicle\parking_list.html:12
+msgid "Add New Parking"
+msgstr "Ajouter un Nouveau Parking"
+
+#: .\templates\vehicle\vehicle_confirm_delete.html:4
+#: .\templates\vehicle\vehicle_confirm_delete.html:9
+msgid "Delete Vehicle"
+msgstr "Supprimer Véhicule"
+
+#: .\templates\vehicle\vehicle_form.html:4
+#: .\templates\vehicle\vehicle_form.html:9
+msgid "Edit Vehicle"
+msgstr "Modifier Véhicule"
+
+#: .\templates\vehicle\vehicle_list.html:4
+msgid "Vehicle List"
+msgstr "Liste des Véhicules"
+
+#: .\templates\vehicle\vehicle_list.html:12
+msgid "Add New Vehicle"
+msgstr "Ajouter un Nouveau Véhicule"
+
+#: .\templates\vehicle\vehicle_list.html:20
+msgid "Brand"
+msgstr "Marque"
+
+#: .\templates\vehicle\vehicle_list.html:21
+msgid "Model"
+msgstr "Modèle"
+
+#: .\templates\vehicle\vehicle_list.html:22
+msgid "Registration Plate"
+msgstr "Plaque d'Immatriculation"
+```

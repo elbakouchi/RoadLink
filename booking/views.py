@@ -15,6 +15,40 @@ from django.core.mail import EmailMessage
 
 # Create your views here.
 
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.urls import reverse_lazy
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from .models import Book
+
+class BookListView(ListView):
+    model = Book
+    template_name = 'booking/booking_list.html'
+    context_object_name = 'books'
+
+class BookCreateView(CreateView):
+    model = Book
+    fields = ['source', 'destination', 'distance', 'bookingDate', 'startDate', 'endDate', 'securityDeposit', 'status', 'discountId', 'allottedUser', 'allottedDriver', 'vehicle', 'cost', 'duration']
+    template_name = 'booking/booking_form.html'
+    success_url = reverse_lazy('book:book_list')
+
+class BookUpdateView(UserPassesTestMixin, UpdateView):
+    model = Book
+    fields = ['source', 'destination', 'distance', 'bookingDate', 'startDate', 'endDate', 'securityDeposit', 'status', 'discountId', 'allottedUser', 'allottedDriver', 'vehicle', 'cost', 'duration']
+    template_name = 'booking/booking_form.html'
+    success_url = reverse_lazy('book:book_list')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+class BookDeleteView(UserPassesTestMixin, DeleteView):
+    model = Book
+    template_name = 'booking/booking_confirm_delete.html'
+    success_url = reverse_lazy('book:book_list')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+
 
 def index(request):
     if request.user.is_authenticated:

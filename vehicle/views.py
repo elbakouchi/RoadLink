@@ -83,3 +83,66 @@ def edit(request, id):
         vehicle = Vehicle.objects.get(id=id)
         form = VehicleForm(instance=vehicle)
         return render(request, 'vehicle/vehicleEdit.html', {'form': form, 'id': id})
+    
+
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.urls import reverse_lazy
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from .models import Parking, Vehicle
+
+class ParkingListView(ListView):
+    model = Parking
+    template_name = 'vehicle/parking_list.html'
+    context_object_name = 'parkings'
+
+class ParkingCreateView(CreateView):
+    model = Parking
+    fields = ['name']
+    template_name = 'vehicle/parking_form.html'
+    success_url = reverse_lazy('vehicle:parking_list')
+
+class ParkingUpdateView(UserPassesTestMixin, UpdateView):
+    model = Parking
+    fields = ['name']
+    template_name = 'vehicle/parking_form.html'
+    success_url = reverse_lazy('vehicle:parking_list')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+class ParkingDeleteView(UserPassesTestMixin, DeleteView):
+    model = Parking
+    template_name = 'vehicle/parking_confirm_delete.html'
+    success_url = reverse_lazy('vehicle:parking_list')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+class VehicleListView(ListView):
+    model = Vehicle
+    template_name = 'vehicle/vehicle_list.html'
+    context_object_name = 'vehicles'
+
+class VehicleCreateView(CreateView):
+    model = Vehicle
+    fields = ['brand', 'model', 'registration_plate', 'parking', 'vehicle_status', 'insurance_status', 'fuel_type', 'mileage', 'vehicle_type', 'image']
+    template_name = 'vehicle/vehicle_form.html'
+    success_url = reverse_lazy('vehicle:vehicle_list')
+
+class VehicleUpdateView(UserPassesTestMixin, UpdateView):
+    model = Vehicle
+    fields = ['brand', 'model', 'registration_plate', 'parking', 'vehicle_status', 'insurance_status', 'fuel_type', 'mileage', 'vehicle_type', 'image']
+    template_name = 'vehicle/vehicle_form.html'
+    success_url = reverse_lazy('vehicle:vehicle_list')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+class VehicleDeleteView(UserPassesTestMixin, DeleteView):
+    model = Vehicle
+    template_name = 'vehicle/vehicle_confirm_delete.html'
+    success_url = reverse_lazy('vehicle:vehicle_list')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+

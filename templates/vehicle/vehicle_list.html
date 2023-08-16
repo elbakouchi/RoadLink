@@ -1,0 +1,46 @@
+{% extends 'base/base1.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Vehicle List" %}{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">{% trans "Vehicles" %}</h3>
+            <div class="card-tools">
+                <a href="{% url 'vehicle:vehicle_create' %}" class="btn btn-success">
+                    <i class="fas fa-plus"></i> {% trans "Add New Vehicle" %}
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>{% trans "Brand" %}</th>
+                        <th>{% trans "Model" %}</th>
+                        <th>{% trans "Registration Plate" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for vehicle in vehicles %}
+                        <tr>
+                            <td>{{ vehicle.brand }}</td>
+                            <td>{{ vehicle.model }}</td>
+                            <td>{{ vehicle.registration_plate }}</td>
+                            <td>
+                                <a href="{% url 'vehicle:vehicle_update' vehicle.pk %}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-edit"></i> {% trans "Edit" %}
+                                </a>
+                                <a href="{% url 'vehicle:vehicle_delete' vehicle.pk %}" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i> {% trans "Delete" %}
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

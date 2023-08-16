@@ -36,7 +36,7 @@ SECRET_KEY = 'c7#-5a82#$p11h1itg3(e9591bms*)1$9x+#ed5%5pip6psm)&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'lepark.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '*']
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Application definition
@@ -49,9 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'account.apps.AccountConfig',
-    # 'driver.apps.DriverConfig',
+    'driver.apps.DriverConfig',
     'home.apps.HomeConfig',
-    # 'booking.apps.BookingConfig',
+    'booking.apps.BookingConfig',
     'vehicle.apps.VehicleConfig',
     'repair.apps.RepairConfig',
     'report.apps.ReportConfig',
@@ -67,7 +67,8 @@ INSTALLED_APPS = [
     'district',
     'provider',
     'import_export',
-    'django_q'
+    'django_q',
+    'django_adminlte',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -80,16 +81,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware"
+   # "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
 
 ROOT_URLCONF = 'roadlink.urls'
+
+print("APPS_DIR", str(APPS_DIR.path("templates")))
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         "DIRS": [str(APPS_DIR.path("templates"))],
-        # 'APP_DIRS': True,
+        #'APP_DIRS': True,
 
         'OPTIONS': {
             "loaders": [
@@ -123,8 +126,39 @@ ASGI_APPLICATION = 'roadlink.asgi.application'
 #    }
 # }
 
-DATABASES = {"default": env.db("DATABASE_URL")}
-DATABASES["default"]["ATOMIC_REQUESTS"] = True
+#DATABASES = {"default": env.db("DATABASE_URL")}
+#DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
+"""
+DATABASES = {
+   'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'roadlink1',
+        'USER': 'roadlinker',
+        'PASSWORD': '*963.0258/',
+        'HOST': '172.17.208.1',
+        'PORT': '3306',
+    }
+}
+"""
+from urllib.parse import urlparse
+
+# Parse the database URL
+DATABASE_URL = os.environ.get('DATABASE_URL')
+print(urlparse(DATABASE_URL).path[1:], urlparse(DATABASE_URL).username, urlparse(DATABASE_URL).password, urlparse(DATABASE_URL).hostname, urlparse(DATABASE_URL).port)
+if DATABASE_URL:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': urlparse(DATABASE_URL).path[1:],
+            'USER': urlparse(DATABASE_URL).username,
+            'PASSWORD': urlparse(DATABASE_URL).password,
+            'HOST': urlparse(DATABASE_URL).hostname,
+            'PORT': urlparse(DATABASE_URL).port,
+        }
+    }
+else:
+    raise ValueError("DATABASE_URL environment variable not set")
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -184,7 +218,7 @@ EMAIL_HOST_USER = 'email'
 EMAIL_HOST_PASSWORD = 'pass'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 Q_CLUSTER = {
@@ -194,3 +228,14 @@ Q_CLUSTER = {
     'orm': 'default',
     'broker_class': 'roadlink.broker.RoadLinkBroker'
 }
+
+
+LANGUAGES = [
+    ('en', 'English'),
+    ('fr', 'Français'),
+]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+

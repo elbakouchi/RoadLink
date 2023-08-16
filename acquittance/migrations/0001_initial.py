@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('vehicle', '0008_alter_vehicle_mileage'),
+        ('vehicle', '0001_initial'),
         ('budget', '0008_delete_acquittance'),
         ('organism', '0003_affectation'),
     ]

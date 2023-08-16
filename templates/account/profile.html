@@ -1,0 +1,149 @@
+{% extends 'adminlte/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Add driver</title>
+    <!-- Bootstrap core CSS -->
+
+    {% include 'material/includes/material_css.html' %}
+    <script src="{% static 'material/js/jquery.js' %}"></script>
+    {% include 'material/includes/material_js.html' %}
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>       
+    <!-- Custom styles for this template -->
+</head>
+<style>
+    .welcome{
+        background: #808080;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3fada8, #808080);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3fada8, #808080); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+</style>
+<body>
+  {% block content %}
+  {%if user.is_authenticated %}
+        {% include 'driver/navbar.html' %}
+            <!-- <div class="container-fluid">
+                    <div class="row">
+                        <div class="col s12">
+                                <div class="card detail" >
+                                        <div class="card-header">Profile Details</div>
+                                    <div class="card-body">
+                                     <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Username : {{user.username}} </li>
+                                        <li class="list-group-item">First name : {{user.first_name}}</li>
+                                        <li class="list-group-item">Last name : {{user.last_name}}</li>
+                                        <li class="list-group-item">Email : {{user.email}}</li>
+                                        <li class="list-group-item">Phone number : {{user.phone}}</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+            </div> -->
+            <div class="row">
+                    <div class="col s12">
+                      <div class="welcome card-panel z-depth-3">
+                          <div class="row">
+                          <div class="col s12 center"><h1>Welcome to Road <font style="color : #fff;">Link </font>!</h1></div>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="detail card-panel z-depth-3 ">
+                        <div class="row">
+                            <div class="col s12 center"><h2>Your details</h2></div>
+                        </div>
+
+                    
+                    
+                        <!-- div class="row center">
+                            <div class="col s12 ">
+                                <div class="det card-panel z-depth-3"> -->
+                                        <ul class="collection">
+                                                <li class="collection-item"><h5><span class="teal-text">Username</span> : {{user.username}}</h5></li>
+                                                <li class="collection-item"><h5><span class="teal-text">First name</span> : {{user.first_name}}</h5></li>
+                                                <li class="collection-item"><h5><span class="teal-text">Last name </span>: {{user.last_name}}</h5></li>
+                                                <li class="collection-item"><h5><span class="teal-text">Email </span>: {{user.email}}</h5></li>
+                                    </ul>
+                                    <div class="row center">
+                                        <a href="#modal1" class="btn-large modal-trigger">Edit</a>
+                                        <div id="modal1" class="modal">
+                                                <div class="modal-content left-align">
+                                                  <h4>Modal Header</h4>
+                                                  {%block form %}
+                                                  <form method="POST" action="/account/edit">
+                                                {%csrf_token%}
+                                                <div class="row">
+          <div class="input-field col s12">
+            {% render_field form.username type="text" id="username" class="validate" %}
+            <label for="username" class="center-align">Username</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            {% render_field form.first_name type="text" id="username" class="validate" %}
+            <label for="username" class="center-align">First Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            {% render_field form.last_name type="text" id="username" class="validate" %}
+            <label for="username" class="center-align">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            {% render_field form.email type="email" id="username" class="validate" %}
+            <label for="username" class="center-align">Email</label>
+          </div>
+        </div>
+                                                <div class="col s12 center">
+                                                        <input type="submit" class="btn-large" value="Update">
+                                                    </div>
+                                                </form>
+                                                {%endblock form %}
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <a href="#!" class="modal-action modal-close btn-flat">Close</a>
+                                                </div>
+                                              </div>
+                                    </div>
+                               <!--  </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        <!-- /#page-content-wrapper -->
+{%else%}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">You are not logged</h1>
+    </div>
+</div>
+{%endif%}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>
+{% endblock content %}
+</body>
+
+</html>

@@ -41,6 +41,7 @@ class Provider(models.Model):
 
 class ServiceProvider(Provider):
     class Meta:
+        proxy = True
         verbose_name = "Prestataire de services"
         verbose_name_plural = "Prestataires de services"
         ordering = ("-createdAt",)
@@ -51,6 +52,7 @@ class ServiceProvider(Provider):
 
 class GasSupplier(Provider):
     class Meta:
+        proxy = True
         verbose_name = "Distributeur carburant"
         verbose_name_plural = "Distributeurs carburant"
         ordering = ("-createdAt",)
@@ -61,6 +63,7 @@ class GasSupplier(Provider):
 
 class InsuranceProvider(Provider):
     class Meta:
+        proxy = True
         verbose_name = "Assureur"
         verbose_name_plural = "Assureurs"
         ordering = ("-createdAt",)

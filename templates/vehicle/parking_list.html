@@ -1,0 +1,42 @@
+{% extends 'base/base1.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Parking List" %}{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">{% trans "Parkings" %}</h3>
+            <div class="card-tools">
+                <a href="{% url 'vehicle:parking_create' %}" class="btn btn-success">
+                    <i class="fas fa-plus"></i> {% trans "Add New Parking" %}
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>{% trans "Name" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for parking in parkings %}
+                        <tr>
+                            <td>{{ parking.name }}</td>
+                            <td>
+                                <a href="{% url 'vehicle:parking_update' parking.pk %}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-edit"></i> {% trans "Edit" %}
+                                </a>
+                                <a href="{% url 'vehicle:parking_delete' parking.pk %}" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i> {% trans "Delete" %}
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

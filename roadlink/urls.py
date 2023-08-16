@@ -22,8 +22,12 @@ admin.site.site_header = 'Le Parc Tahnouate'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
+    path('divisions/', include('district.urls')),
+    path('bookings/', include('booking.urls')),
+    path('budgets/', include('budget.urls')),
     # path('driver/', include('driver.urls')),
     path('mission/', include('mission.urls')),
+    path('organism/', include('organism.urls')),
     # path('repair/', include('repair.urls')),
     path('vehicle/', include('vehicle.urls')),
     path('', include('home.urls')),

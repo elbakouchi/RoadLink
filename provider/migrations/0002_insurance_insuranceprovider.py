@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('vehicle', '0008_alter_vehicle_mileage'),
+        ('vehicle', '0001_initial'),
         ('provider', '0001_initial'),
     ]
 

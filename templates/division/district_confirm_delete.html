@@ -1,0 +1,24 @@
+{% extends 'base/base1.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Delete District" %}{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">{% trans "Delete District" %}</h3>
+        </div>
+        <div class="card-body">
+            <p>{% trans "Are you sure you want to delete" %} "{{ object }}"?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-trash"></i> {% trans "Delete" %}
+                </button>
+                <a href="{% url 'division:district_list' %}" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> {% trans "Cancel" %}
+                </a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

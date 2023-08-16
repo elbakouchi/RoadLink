@@ -37,6 +37,7 @@ class InsuranceProviderAdmin(admin.ModelAdmin):
     # list_display = ['company_name', 'website', 'created_by']
     # raw_id_fields = ['created_by']
     def expiring_insurance_message(self, request):
+        pass
 
 
     def get_changeform_initial_data(self, request):

@@ -1,0 +1,24 @@
+{% extends 'base/base1.html' %}
+{% load static i18n %}
+
+{% block title %}{% if object.pk %}{% trans "Edit Vehicle" %}{% else %}{% trans "Create Vehicle" %}{% endif %}{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">{% if object.pk %}{% trans "Edit Vehicle" %}{% else %}{% trans "Create Vehicle" %}{% endif %}</h3>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">
+                    {% if object.pk %}{% trans "Save Changes" %}{% else %}{% trans "Create" %}{% endif %}
+                </button>
+                <a href="{% url 'vehicle:vehicle_list' %}" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> {% trans "Cancel" %}
+                </a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

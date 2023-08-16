@@ -1,0 +1,50 @@
+{% extends 'base/base1.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Budget List" %}{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">{% trans "Budgets" %}</h3>
+            {% if user.is_superuser %}
+            <div class="card-tools">
+                <a href="{% url 'budget:budget_create' %}" class="btn btn-success">
+                    <i class="fas fa-plus"></i> {% trans "Add New Budget" %}
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>{% trans "Title" %}</th>
+                        <th>{% trans "Fiscal Year Start" %}</th>
+                        <th>{% trans "Fiscal Year End" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for budget in budgets %}
+                        <tr>
+                            <td>{{ budget.title }}</td>
+                            <td>{{ budget.fiscal_year_start }}</td>
+                            <td>{{ budget.fiscal_year_end }}</td>
+                            <td>
+                                {% if user.is_superuser %}
+                                <a href="{% url 'budget:budget_update' budget.pk %}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-edit"></i> {% trans "Edit" %}
+                                </a>
+                                <a href="{% url 'budget:budget_delete' budget.pk %}" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i> {% trans "Delete" %}
+                                </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

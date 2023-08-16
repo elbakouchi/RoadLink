@@ -12,7 +12,10 @@ from vehicle.models import Vehicle
 from district.models import District
 from budget.models import Budget
 from organism.models import Organism
-from weasyprint import HTML, CSS
+try:
+    from weasyprint import HTML, CSS
+except:
+    pass    
 # from weasyprint.text.fonts import FontConfiguration
 import time
 

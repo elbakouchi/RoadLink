@@ -1,0 +1,46 @@
+{% extends 'adminlte/base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Affectation List" %}{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">{% trans "Affectations" %}</h3>
+            {% if user.is_superuser %}
+            <div class="card-tools">
+                <a href="{% url 'organism:affectation_create' %}" class="btn btn-success">
+                    <i class="fas fa-plus"></i> {% trans "Add New Affectation" %}
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>{% trans "Name" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for affectation in affectations %}
+                        <tr>
+                            <td>{{ affectation.name }}</td>
+                            <td>
+                                {% if user.is_superuser %}
+                                <a href="{% url 'organism:affectation_update' affectation.pk %}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-edit"></i> {% trans "Edit" %}
+                                </a>
+                                <a href="{% url 'organism:affectation_delete' affectation.pk %}" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i> {% trans "Delete" %}
+                                </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

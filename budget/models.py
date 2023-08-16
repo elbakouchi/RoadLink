@@ -19,5 +19,8 @@ class Budget(models.Model):
         verbose_name = "Budget"
         verbose_name_plural = "Budgets"
         ordering = ("-createdAt",)
+        permissions = [
+            ('can_edit_delete_budget', 'Can edit and delete budgets'),
+        ]    
 
 

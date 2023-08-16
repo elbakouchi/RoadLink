@@ -6,7 +6,9 @@ from django.template.loader import render_to_string
 
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
-from weasyprint import HTML
+try:
+    from weasyprint import HTML
+except:pass    
 from booking.models import Book
 
 

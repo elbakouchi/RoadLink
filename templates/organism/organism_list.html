@@ -1,0 +1,52 @@
+{% extends 'adminlte/base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Organism List" %}{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">{% trans "Organisms" %}</h3>
+            {% if user.is_superuser %}
+            <div class="card-tools">
+                <a href="{% url 'organism:organism_create' %}" class="btn btn-success">
+                    <i class="fas fa-plus"></i> {% trans "Add New Organism" %}
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>{% trans "Ministry" %}</th>
+                        <th>{% trans "Province" %}</th>
+                        <th>{% trans "Department" %}</th>
+                        <th>{% trans "Service" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for organism in organisms %}
+                        <tr>
+                            <td>{{ organism.ministry }}</td>
+                            <td>{{ organism.province }}</td>
+                            <td>{{ organism.department }}</td>
+                            <td>{{ organism.service }}</td>
+                            <td>
+                                {% if user.is_superuser %}
+                                <a href="{% url 'organism:organism_update' organism.pk %}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-edit"></i> {% trans "Edit" %}
+                                </a>
+                                <a href="{% url 'organism:organism_delete' organism.pk %}" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i> {% trans "Delete" %}
+                                </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

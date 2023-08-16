@@ -11,7 +11,15 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+         
 
+       
+       
+        
+    ]
+
+
+"""
         migrations.RemoveField(
             model_name='insuranceprovider',
             name='createdAt',
@@ -35,5 +43,5 @@ class Migration(migrations.Migration):
                                        on_delete=django.db.models.deletion.CASCADE,
                                        parent_link=True, primary_key=True, serialize=False, to='provider.provider'),
             preserve_default=False,
-        )
-    ]
+        ) 
+"""

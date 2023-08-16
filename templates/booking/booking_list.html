@@ -1,0 +1,48 @@
+{% extends 'base/base1.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Book List" %}{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">{% trans "Books" %}</h3>
+            <div class="card-tools">
+                <a href="{% url 'booking:booking_create' %}" class="btn btn-success">
+                    <i class="fas fa-plus"></i> {% trans "Add New Book" %}
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>{% trans "Source" %}</th>
+                        <th>{% trans "Destination" %}</th>
+                        <th>{% trans "Status" %}</th>
+                        <th>{% trans "Allotted User" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                        <tr>
+                            <td>{{ book.source }}</td>
+                            <td>{{ book.destination }}</td>
+                            <td>{{ book.get_status_display }}</td>
+                            <td>{{ book.allottedUser }}</td>
+                            <td>
+                                <a href="{% url 'booking:booking_update' book.pk %}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-edit"></i> {% trans "Edit" %}
+                                </a>
+                                <a href="{% url 'booking:booking_delete' book.pk %}" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i> {% trans "Delete" %}
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

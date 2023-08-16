@@ -1,0 +1,233 @@
+{% extends 'adminlte/lib/_main_sidebar.html' %}
+{% load static i18n %}
+{% block logo %}
+        <a href="/" class="brand-link">
+            <img src="{%static 'admin-lte/dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            {% block logo_text %}<span class="brand-text font-weight-light">D.B.R.H.L Parc Auto</span>{% endblock %}
+        </a>
+    {% endblock %}
+{% block nav_links_ul %}
+        <nav class="mt-2">
+            <!-- Division Menu -->
+            <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                        {% trans "Divisions" %}
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{% url 'division:district_list' %}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>{% trans "List Divisions" %}</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'division:district_create' %}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>{% trans "Create Division" %}</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- End Division Menu -->
+            <!-- Book Menu -->
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                    {% trans "Bookings" %}
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{% url 'booking:booking_list' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{% trans "List Bookings" %}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'booking:booking_create' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{% trans "Create Booking" %}</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- End Book Menu -->
+        <!-- Parking Menu -->
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-car"></i>
+                <p>
+                    {% trans "Parkings" %}
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{% url 'vehicle:parking_list' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{% trans "List Parkings" %}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'vehicle:parking_create' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{% trans "Create Parking" %}</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- End Parking Menu -->
+
+        <!-- Vehicle Menu -->
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-car"></i>
+                <p>
+                    {% trans "Vehicles" %}
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{% url 'vehicle:vehicle_list' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{% trans "List Vehicles" %}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'vehicle:vehicle_create' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{% trans "Create Vehicle" %}</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- End Vehicle Menu -->
+        <!-- Budget Menu -->
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-chart-line"></i>
+                <p>
+                    {% trans "Budgets" %}
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{% url 'budget:budget_list' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{% trans "List Budgets" %}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'budget:budget_create' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{% trans "Create Budget" %}</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- End Budget Menu -->
+
+        <!-- Affectation Menu -->
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                    {% trans "Affectations" %}
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{% url 'organism:affectation_list' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{% trans "List Affectations" %}</p>
+                    </a>
+                </li>
+                {% if user.is_superuser %}
+                <li class="nav-item">
+                    <a href="{% url 'organism:affectation_create' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{% trans "Create Affectation" %}</p>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </li>
+        <!-- End Affectation Menu -->
+
+        <!-- Organism Menu -->
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-building"></i>
+                <p>
+                    {% trans "Organisms" %}
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{% url 'organism:organism_list' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{% trans "List Organisms" %}</p>
+                    </a>
+                </li>
+                {% if user.is_superuser %}
+                <li class="nav-item">
+                    <a href="{% url 'organism:organism_create' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{% trans "Create Organism" %}</p>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </li>
+        <!-- End Organism Menu -->
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    {% block nav_links_outer %}
+    <li class="nav-header">{% block nav_heading %}{% endblock %}</li>
+
+    {% block nav_links %}
+        <li class="nav-item">
+            <a href="{% url 'home:index' %}" class="nav-link">
+                <i class="nav-icon fas fa-home"></i> 
+                <p>Accueil</p>
+            </a>
+        </li>
+        <li class="nav-item">
+                <a href="#" class="nav-link active">
+                    <i class="nav-icon fas fa-tachometer-alt"></i> 
+                    <p>Missions</p>
+                </a>
+            </li>
+        <li class="nav-item has-tree-view ">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-hexagon-fill"></i> <p>Missions</p>
+                <p><i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview menu-open">
+                    <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-circle"></i> Historique
+                            </a>
+                        </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-hexagon"></i> Nouvelle mission
+                    </a>
+                </li>
+            </ul>
+        </li>
+    {% endblock nav_links %}
+    {% endblock nav_links_outer %}
+    </ul>
+    </nav>
+{% endblock nav_links_ul %}

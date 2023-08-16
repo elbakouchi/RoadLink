@@ -4,8 +4,9 @@ from django.template.loader import render_to_string
 from django.http import HttpResponse
 from django.views.generic import View
 from django.db import models
-
-from weasyprint import HTML
+try:
+ from weasyprint import HTML
+except:pass 
 
 
 def html_to_pdf_view(request):

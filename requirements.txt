@@ -18,7 +18,7 @@ daphne==3.0.2
 defusedxml==0.5.0
 diff-match-patch==20200713
 distlib==0.3.4
-Django==3.2.12
+Django==4.2.5
 django-adminlte3==0.1.6
 django-crispy-forms==1.13.0
 django-debug-toolbar==4.2.0
@@ -61,7 +61,7 @@ pyOpenSSL==22.0.0
 Pyphen==0.9.4
 python-dateutil==2.8.2
 pytz==2018.3
-PyYAML==6.0
+#PyYAML==6.0
 redis==5.0.0
 requests==2.31.0
 service-identity==21.1.0

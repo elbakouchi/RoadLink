@@ -1,5 +1,5 @@
-# Use Alpine Linux as the base image
-FROM python:3.x-alpine
+# Use Alpine Linux 3.14 as the base image
+FROM python:3.x-alpine3.14
 
 # Set environment variables for Django
 ENV DJANGO_SETTINGS_MODULE=roadlink.settings
@@ -26,7 +26,9 @@ RUN apk add --no-cache postgresql postgresql-dev && \
     chown -R postgres /run/postgresql && \
     su postgres -c "initdb -D /var/lib/postgresql/data" && \
     su postgres -c "pg_ctl start -D /var/lib/postgresql/data -o '-c listen_addresses='localhost''" && \
-    su postgres -c "createdb roadlink" && \
+    su postgres -c "createuser -d -r -s -U postgres roadlink" && \
+    su postgres -c "psql -c \"ALTER USER roadlink WITH PASSWORD '0000';\"" && \
+    su postgres -c "createdb -O roadlink roadlink" && \
     su postgres -c "psql -d roadlink -c 'CREATE EXTENSION IF NOT EXISTS hstore;'" && \
     su postgres -c "pg_ctl stop -D /var/lib/postgresql/data"
 

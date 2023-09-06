@@ -9,6 +9,7 @@ RUN apk update && \
 # Set environment variables for Django
 ENV DJANGO_SETTINGS_MODULE=roadlink.settings
 ENV PYTHONUNBUFFERED=1
+ENV DATABASE_URL=postgres://roadlink:0000@localhost:5432/roadlink
 
 # Install system dependencies
 RUN apk update && \
@@ -16,8 +17,7 @@ RUN apk update && \
     # Add any required system packages here
 
 # Install Python dependencies
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+
 
 # Install PostgreSQL and initialize the database
 RUN apk add --no-cache postgresql postgresql-dev && \
@@ -42,6 +42,9 @@ WORKDIR /app
 
 # Copy the Django project code into the container
 COPY . /app/
+
+#COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Collect static files (if applicable)
 RUN python manage.py collectstatic --noinput

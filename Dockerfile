@@ -1,5 +1,10 @@
-# Use Alpine Linux 3.14 as the base image
-FROM python:3.x-alpine3.14
+#Use Alpine Linux as the base image
+FROM alpine:latest
+
+# Install Python and required packages
+RUN apk update && \
+    apk add --no-cache python3 py3-pip postgresql-dev gcc python3-dev musl-dev && \
+    pip3 install --upgrade pip
 
 # Set environment variables for Django
 ENV DJANGO_SETTINGS_MODULE=roadlink.settings

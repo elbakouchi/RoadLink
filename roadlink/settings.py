@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_adminlte',
     # 'account.apps.AccountConfig',
     'driver.apps.DriverConfig',
     'home.apps.HomeConfig',
@@ -68,7 +69,6 @@ INSTALLED_APPS = [
     'provider',
     'import_export',
     'django_q',
-    'django_adminlte',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

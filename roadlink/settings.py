@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     #'django_adminlte',
     # 'account.apps.AccountConfig',
     'adminlte3',
-    'adminlte3_theme'
+    'adminlte3_theme',
     'driver.apps.DriverConfig',
     'home.apps.HomeConfig',
     'booking.apps.BookingConfig',

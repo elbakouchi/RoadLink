@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #'django_adminlte',
     # 'account.apps.AccountConfig',
+    'adminlte3',
+    'adminlte3_theme'
     'driver.apps.DriverConfig',
     'home.apps.HomeConfig',
     'booking.apps.BookingConfig',
@@ -60,6 +62,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'requests',
     'geopy',
+
     'widget_tweaks',
     'material',
     'organism',
@@ -69,6 +72,7 @@ INSTALLED_APPS = [
     'provider',
     'import_export',
     'django_q',
+
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
